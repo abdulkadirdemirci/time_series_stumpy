@@ -67,6 +67,29 @@ def subseq_vis(data, deger, starts_, ends_, both=False, candle=False):
 
 
 def pair_finder(dataframe, window_size, graph=False):
+    """
+    belirlenen window_size kapsamında en son oluşmuş olan paterne en çok benzeyen
+    geçmişteki en iyi eşleşmeyi buur ve konumunu görsel üzerinde göstrerir.
+
+    :param dataframe:
+        zaman serisi incelemesi yapılacak veri seti.
+        type: dataframe
+    :param window_size:
+        inceleme yapılacak patran aranacak zaman adımı mikarı
+        type: integer
+        +----------------------------------------------------+
+        |   örn:                                             |
+        |   borsa için 4 saatlik bir veri setinde bir        |
+        |   haftalık bir zaman aralığına                     |
+        |   en uygun eşleşmeyi bulmak istiyorsak 6*5 = 30    |
+        |   adımlık inceleme subspace'i seçilmeli            |
+        +----------------------------------------------------+
+    :param graph:
+        oluşturulan matrix profile grafiği çizilsin.
+        default = False
+    :return:
+        grafik veya none
+    """
     matrix_profile = stumpy.stump(dataframe, m=window_size)
     print("matrix profile oluşturuldu")
 

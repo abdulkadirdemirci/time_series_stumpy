@@ -8,3 +8,5 @@ için 6*5= 30 birim uzunluktaki paternler incelenmeli
 (hafta sonları işlem yok 7 değil 5 gün)
 """
 window_size=42
+stock_name= "ISCTR.IS"
+period = "5y"

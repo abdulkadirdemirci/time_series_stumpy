@@ -103,18 +103,19 @@ def pair_finder(dataframe, window_size, graph=False):
         fig, axs = plt.subplots(2, sharex=True, gridspec_kw={'hspace': 0})
         plt.suptitle('Motif (Pattern) Discovery', fontsize='30')
 
+        axs[0].plot(data["Open"].values)
+        axs[0].set_ylabel('açılış fiyatı', fontsize='20')
+        rect = Rectangle((len(matrix_profile) - 1, 0), window_size, 40, facecolor='lightgrey')
+        axs[0].add_patch(rect)
+        rect = Rectangle((nearest_neighbor_idx, 0), window_size, 40, facecolor='green')
+        axs[0].add_patch(rect)
 
-        axs[0].plot(dataframe.values)
-        axs[0].set_ylabel('Türk Lirası', fontsize='20')
-        rect = Rectangle((len(matrix_profile)-1, 0), 30, 40, facecolor='lightgrey')
-        axs[0].add_patch(rect)
-        rect = Rectangle((nearest_neighbor_idx, 0), 30, 40, facecolor='green')
-        axs[0].add_patch(rect)
         axs[1].set_xlabel('Time', fontsize='20')
         axs[1].set_ylabel('Matrix Profile', fontsize='20')
-        axs[1].axvline(x=len(matrix_profile)-1, linestyle="dashed")
+        axs[1].axvline(x=len(matrix_profile) - 1, linestyle="dashed")
         axs[1].axvline(x=nearest_neighbor_idx, linestyle="dashed")
         axs[1].plot(matrix_profile[:, 0])
         plt.show()
+
 
 
